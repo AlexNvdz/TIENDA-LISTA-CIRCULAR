@@ -118,6 +118,17 @@ public class PStack {
         }
         caux=null;
     }
+    
+    public double getPromedio(){
+       float suma = 0;
+       for (Producto producto : pilaP) {
+        // Supongamos que los objetos Producto tienen un atributo llamado "valor"
+        // que es un número que deseas sumar
+        double valorProducto = producto.precioU;  // Obtén el valor del Producto
+        suma += valorProducto;  // Acumula el valor en la suma
+    }
+    return suma/pilaP.size();
+    }
 }    
     
   
