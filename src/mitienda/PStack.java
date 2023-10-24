@@ -18,7 +18,7 @@ public class PStack {
         pilaP = new Stack();
     }
             
-    void setPushCliente(Producto q){
+    void setPushProducto(Producto q){
         int pos= pilaP.indexOf(q);
         //Si el cliente no existe es agregado
         if(pos==-1){
@@ -31,7 +31,7 @@ public class PStack {
         }
     }
     
-    void setPopCliente(){
+    void setPopProducto(){
         if(!pilaP.empty()){
             pilaP.pop();
             JOptionPane.showMessageDialog(null, 
@@ -55,7 +55,7 @@ public class PStack {
         return aux;
     }
     
-    void setPopClienteId(String id){        
+    void setPopProductoId(String id){        
         Producto aux = null;
         if(!pilaP.empty()){
             aux = getInfoProductoid(id);
@@ -72,7 +72,7 @@ public class PStack {
         }
     }
     
-    void getseeInfoCliente(String id){
+    void getseeInfoProducto(String id){
         Producto aux=getInfoProductoid(id);
         String data="";
         if(aux!=null){
@@ -111,7 +111,7 @@ public class PStack {
         PStack caux=this.getClonar();
         while((i<caux.pilaP.size())&&(op==0)){
             aux=(Producto) caux.pilaP.elementAt(i);
-            getseeInfoCliente(aux.idProducto);
+            getseeInfoProducto(aux.idProducto);
             i++;                        
             op=JOptionPane.showConfirmDialog(
             null, "Desea continuar?");
