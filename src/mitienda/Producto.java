@@ -17,25 +17,16 @@ public class Producto {
     String fechaLote;
     String fechaVence;
     float precioU;
-    Producto sig;
-
+    
+    Producto(){
+        idProducto=nomProducto=fechaLote=fechaVence="";
+        precioU = -1;
+    }
     public Producto(String id, String nom, String fechaL, String fechaV, float costo) {
         idProducto = id;
         nomProducto = nom;
         fechaLote = fechaL;
         fechaVence = fechaV;
         precioU = costo;
-        sig = null;
-    }
-
-  
-    public void getMostrarNodo() {
-        String info = "La informacion del nodo es: \n";
-        info += "ID Producto: " + idProducto + "\n";
-        info += "Nombre Producto: " + nomProducto + "\n";
-        info += "Fecha Lote: " + fechaLote + "\n";
-        info += "Fecha Vencimiento: " + fechaVence + "\n";
-        info += "Precio Unitario: " + precioU + "\n";
-        JOptionPane.showMessageDialog(null, info);
     }
 }
