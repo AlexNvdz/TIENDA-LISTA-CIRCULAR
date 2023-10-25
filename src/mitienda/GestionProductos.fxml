@@ -3,14 +3,26 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mitienda.GestionProductosController">
    <children>
       <MenuBar fx:id="MenuBar" layoutY="-1.0" prefHeight="30.0" prefWidth="881.0">
         <menus>
-          <Menu fx:id="MenRegistrar" mnemonicParsing="false" text="Registrar" />
-          <Menu fx:id="MenBuscar" mnemonicParsing="false" text="Buscar" />
+          <Menu fx:id="MenRegistrar" mnemonicParsing="false" text="Registrar">
+               <items>
+                  <MenuItem fx:id="insertar" mnemonicParsing="false" text="Nuevo" />
+               </items></Menu>
+          <Menu fx:id="MenBuscar" mnemonicParsing="false" text="Buscar">
+               <items>
+                  <MenuItem fx:id="busId" mnemonicParsing="false" text="Por ID" />
+                  <MenuItem fx:id="busNom" mnemonicParsing="false" text="Por Nombre" />
+                  <MenuItem fx:id="busFL" mnemonicParsing="false" text="Por fechaL" />
+                  <MenuItem fx:id="busFV" mnemonicParsing="false" text="por FechaV" />
+                  <MenuItem fx:id="busPrecio" mnemonicParsing="false" text="por Precio" />
+               </items></Menu>
           <Menu fx:id="MenListar" mnemonicParsing="false" text="Listar">
                <items>
                   <MenuItem fx:id="Listar1" mnemonicParsing="false" text="Respecto al Mes" />
@@ -23,7 +35,21 @@
                   <MenuItem fx:id="Op3" mnemonicParsing="false" text="Menor Y Mayor Precio" />
               </items>
             </Menu>
+            <Menu fx:id="menSalir" mnemonicParsing="false" text="Aplicacion">
+              <items>
+                <MenuItem fx:id="funSalir" mnemonicParsing="false" onAction="#eventoSalir" text="Salir" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
+      <ScrollPane layoutX="35.0" layoutY="65.0" prefHeight="431.0" prefWidth="806.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="421.0" prefWidth="806.0">
+               <children>
+                  <TableView fx:id="MiTabla" prefHeight="422.0" prefWidth="806.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

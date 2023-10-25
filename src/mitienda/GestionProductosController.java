@@ -2,6 +2,7 @@ package mitienda;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -11,9 +12,6 @@ import javafx.scene.control.TableView;
 
 public class GestionProductosController {
 
-     @FXML
-    private TableView MiTabla;
-     
     @FXML
     private MenuItem Listar1;
 
@@ -33,6 +31,9 @@ public class GestionProductosController {
     private MenuBar MenuBar;
 
     @FXML
+    private TableView<?> MiTabla;
+
+    @FXML
     private MenuItem Op1;
 
     @FXML
@@ -40,9 +41,37 @@ public class GestionProductosController {
 
     @FXML
     private MenuItem Op3;
-    
 
-      public void initialize(URL url, ResourceBundle rb) {
+    @FXML
+    private MenuItem busFL;
+
+    @FXML
+    private MenuItem busFV;
+
+    @FXML
+    private MenuItem busId;
+
+    @FXML
+    private MenuItem busNom;
+
+    @FXML
+    private MenuItem busPrecio;
+
+    @FXML
+    private MenuItem funSalir;
+
+    @FXML
+    private MenuItem insertar;
+
+    @FXML
+    private Menu menSalir;
+
+    @FXML
+    void eventoSalir(ActionEvent event) {
+
+    }
+    
+     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         TableColumn id = new TableColumn("ID");
         TableColumn nomP = new TableColumn("NOMBRE");
