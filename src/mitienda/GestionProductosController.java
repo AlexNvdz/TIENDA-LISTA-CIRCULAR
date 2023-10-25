@@ -4,15 +4,21 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class GestionProductosController {
+    
+    String idProducto="", nomProducto="", fechaLote="", fechaVence="",aux="";
+    float precioU = -1;
+    PStack pilaProductos = new PStack();
 
-    @FXML
+   @FXML
     private MenuItem Listar1;
 
     @FXML
@@ -23,9 +29,6 @@ public class GestionProductosController {
 
     @FXML
     private Menu MenOperaciones;
-
-    @FXML
-    private Menu MenRegistrar;
 
     @FXML
     private MenuBar MenuBar;
@@ -41,6 +44,24 @@ public class GestionProductosController {
 
     @FXML
     private MenuItem Op3;
+
+    @FXML
+    private TableColumn<?, ?> TFt;
+
+    @FXML
+    private TableColumn<?, ?> TFv;
+
+    @FXML
+    private TableColumn<?, ?> TNom;
+
+    @FXML
+    private TableColumn<?, ?> TPrecio;
+
+    @FXML
+    private TableColumn<?, ?> Tid;
+
+    @FXML
+    private Button btnRegistrar;
 
     @FXML
     private MenuItem busFL;
@@ -61,25 +82,38 @@ public class GestionProductosController {
     private MenuItem funSalir;
 
     @FXML
-    private MenuItem insertar;
-
-    @FXML
     private Menu menSalir;
 
     @FXML
-    void eventoSalir(ActionEvent event) {
+    private TextField txtID;
 
+    @FXML
+    private TextField txtLote;
+
+    @FXML
+    private TextField txtNombre;
+
+    @FXML
+    private TextField txtPrecio;
+
+    @FXML
+    private TextField txtVence;
+    
+    @FXML
+    void eventoSalir(ActionEvent event) {
+        System.exit(0);
     }
     
-     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        TableColumn id = new TableColumn("ID");
-        TableColumn nomP = new TableColumn("NOMBRE");
-        TableColumn fechaLote = new TableColumn("FECHA LOTE");
-        TableColumn fechaVence = new TableColumn("FECHA VENCE");
-        TableColumn precioU = new TableColumn("PRECIO");
-
-        MiTabla.getColumns().addAll(id, nomP, fechaLote, fechaVence, precioU);
+    
+    @FXML
+    void eventoRegitrar(ActionEvent event) {
+        idProducto = txtID.getText();
+        nomProducto = txtNombre.getText();
+         
     }
 
+     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+      
+    }
 }
