@@ -3,13 +3,11 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mitienda.GestionProductosController">
    <children>
-      <TableView fx:id="MiTabla" layoutX="56.0" layoutY="127.0" prefHeight="285.0" prefWidth="730.0" />
-      <MenuBar fx:id="MenuBar" layoutX="-4.0" layoutY="-1.0" prefHeight="30.0" prefWidth="888.0">
+      <MenuBar fx:id="MenuBar" layoutY="-1.0" prefHeight="30.0" prefWidth="881.0">
         <menus>
           <Menu fx:id="MenRegistrar" mnemonicParsing="false" text="Registrar" />
           <Menu fx:id="MenBuscar" mnemonicParsing="false" text="Buscar" />
@@ -25,7 +23,6 @@
                   <MenuItem fx:id="Op3" mnemonicParsing="false" text="Menor Y Mayor Precio" />
               </items>
             </Menu>
-            <Menu fx:id="MenSalir" mnemonicParsing="false" text="Salir" />
         </menus>
       </MenuBar>
    </children>

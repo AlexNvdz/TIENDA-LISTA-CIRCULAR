@@ -15,16 +15,16 @@ import javafx.stage.Stage;
  * @author Alex Nvdz
  */
 public class MiTienda extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
-        
+
         stage.setTitle("TIENDA DEL PUEBLO");
         stage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("GestionProductos.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.show();
     }
@@ -35,5 +35,5 @@ public class MiTienda extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
