@@ -4,6 +4,7 @@
  */
 package mitienda;
 
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,15 +15,16 @@ public class Producto {
 
     String idProducto;
     String nomProducto;
-    String fechaLote;
-    String fechaVence;
+    Date fechaLote;
+    Date fechaVence;
     float precioU;
     
     Producto(){
-        idProducto=nomProducto=fechaLote=fechaVence="";
+        idProducto=nomProducto="";
+        fechaLote = fechaVence= null;
         precioU = -1;
     }
-    public Producto(String id, String nom, String fechaL, String fechaV, float costo) {
+    public Producto(String id, String nom, Date fechaL, Date fechaV, float costo) {
         idProducto = id;
         nomProducto = nom;
         fechaLote = fechaL;
