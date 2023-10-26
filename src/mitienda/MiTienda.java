@@ -5,6 +5,7 @@
 package mitienda;
 
 import javafx.application.Application;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,7 +19,7 @@ public class MiTienda extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
+        
         stage.setTitle("TIENDA DEL PUEBLO");
         stage.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("GestionProductos.fxml"));

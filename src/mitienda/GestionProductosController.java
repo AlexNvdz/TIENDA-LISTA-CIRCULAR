@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -53,21 +55,6 @@ public class GestionProductosController {
     private MenuItem Op3;
 
     @FXML
-    private TableColumn<?, ?> TFt;
-
-    @FXML
-    private TableColumn<?, ?> TFv;
-
-    @FXML
-    private TableColumn<?, ?> TNom;
-
-    @FXML
-    private TableColumn<?, ?> TPrecio;
-
-    @FXML
-    private TableColumn<?, ?> Tid;
-
-    @FXML
     private Button btnRegistrar;
 
     @FXML
@@ -112,6 +99,13 @@ public class GestionProductosController {
     }
     
     
+     @FXML
+    void EventoMostrar(ActionEvent event) {
+        
+    }
+    
+    private ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
+    
     @FXML
     void eventoRegitrar(ActionEvent event) throws ParseException {
         String fechaRegex = "\\d{2}/\\d{2}/\\d{4}";
@@ -143,7 +137,7 @@ public class GestionProductosController {
     
      public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
+         
 
      }
 }
