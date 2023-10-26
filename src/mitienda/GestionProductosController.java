@@ -1,20 +1,17 @@
 package mitienda;
-
 import java.net.URL;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
@@ -22,12 +19,11 @@ import javax.swing.JOptionPane;
 public class GestionProductosController {
     
     String idProducto="", nomProducto="";
-    Date fechaLote = null, fechaVence=null;
+    LocalDate fechaLote = null, fechaVence=null;
     float precioU = -1;
-    Producto caux = new Producto();
     PStack pilaProductos = new PStack();
 
-   @FXML
+    @FXML
     private MenuItem Listar1;
 
     @FXML
@@ -76,22 +72,22 @@ public class GestionProductosController {
     private MenuItem funSalir;
 
     @FXML
+    private DatePicker getFechaL;
+
+    @FXML
+    private DatePicker getFechaV;
+
+    @FXML
     private Menu menSalir;
 
     @FXML
     private TextField txtID;
 
     @FXML
-    private TextField txtLote;
-
-    @FXML
     private TextField txtNombre;
 
     @FXML
     private TextField txtPrecio;
-
-    @FXML
-    private TextField txtVence;
     
     @FXML
     void eventoSalir(ActionEvent event) {
@@ -101,43 +97,41 @@ public class GestionProductosController {
     
      @FXML
     void EventoMostrar(ActionEvent event) {
-        
+        pilaProductos.mostrarProductos();
     }
     
     private ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
     
     @FXML
     void eventoRegitrar(ActionEvent event) throws ParseException {
-        String fechaRegex = "\\d{2}/\\d{2}/\\d{4}";
-        idProducto = txtID.getText();
-        nomProducto = txtNombre.getText();
-        SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyyy");
-        if (txtLote.getText().equals("") && txtVence.getText().equals("")) {
+        String id = txtID.getText();
+        String nom = txtNombre.getText();
+        if (getFechaL.getValue()==null && getFechaV.getValue()==null) {
             JOptionPane.showMessageDialog(null, "Ingrese las fechas!!!");
             return;
         } else {
-            if (Pattern.matches(fechaRegex, txtLote.getText()) && Pattern.matches(fechaRegex, txtVence.getText())) {
+           
                  try {
         
-                 Date fechaLote = format.parse(txtLote.getText());
-                 Date fechaVence = format.parse(txtVence.getText());
-                 float precioU = Float.parseFloat(txtPrecio.getText());
+                 LocalDate fechaLote = getFechaL.getValue();
+                 LocalDate fechaVence = getFechaV.getValue() ;
+                 float precio = Float.parseFloat(txtPrecio.getText());
 
-                Producto caux = new Producto(idProducto, nomProducto, fechaLote, fechaVence, precioU);
-                pilaProductos.setPushProducto(caux);
+                Producto producto = new Producto(id, nom, fechaLote, fechaVence, precio);
+                pilaProductos.setPushProducto(producto);
                 
                 } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error al procesar fechas o precio.");
                 }
-            } else {
-            JOptionPane.showMessageDialog(null, "Ingrese el formato correcto dd/mm/yyyy");
             }
         }
-    }
-    
+  
      public void initialize(URL url, ResourceBundle rb) {
         // TODO
          
 
      }
-}
+    }
+    
+    
+

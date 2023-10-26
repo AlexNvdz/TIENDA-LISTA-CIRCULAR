@@ -4,7 +4,7 @@
  */
 package mitienda;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -13,12 +13,21 @@ import java.util.Objects;
  * @author Alex Nvdz
  */
 public class Producto {
+    
+   String idProducto;
+   String nomProducto;
+   LocalDate fechaLote;
+   LocalDate fechaVence;
+   float precioU;
 
-    String idProducto;
-    String nomProducto;
-    Date fechaLote;
-     Date fechaVence;
-    float precioU;
+    public Producto(String idProducto, String nomProducto, LocalDate fechaLote, LocalDate fechaVence, float precioU) {
+        this.idProducto = idProducto;
+        this.nomProducto = nomProducto;
+        this.fechaLote = fechaLote;
+        this.fechaVence = fechaVence;
+        this.precioU = precioU;
+    }
+  
 
     public String getIdProducto() {
         return idProducto;
@@ -36,19 +45,19 @@ public class Producto {
         this.nomProducto = nomProducto;
     }
 
-    public Date getFechaLote() {
+    public LocalDate getFechaLote() {
         return fechaLote;
     }
 
-    public void setFechaLote(Date fechaLote) {
+    public void setFechaLote(LocalDate fechaLote) {
         this.fechaLote = fechaLote;
     }
 
-    public Date getFechaVence() {
+    public LocalDate getFechaVence() {
         return fechaVence;
     }
 
-    public void setFechaVence(Date fechaVence) {
+    public void setFechaVence(LocalDate fechaVence) {
         this.fechaVence = fechaVence;
     }
 
@@ -61,20 +70,6 @@ public class Producto {
     }
    
     
-    Producto(){
-        idProducto=nomProducto="";
-        fechaLote = fechaVence= null;
-        precioU = -1;
-    }
-    public Producto(String id, String nom, Date fechaL, Date fechaV, float costo) {
-        idProducto = id;
-        nomProducto = nom;
-        fechaLote = fechaL;
-        fechaVence = fechaV;
-        precioU = costo;
-    }
-    
-    
       @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -84,12 +79,12 @@ public class Producto {
             return false;
         }
         Producto other = (Producto) obj;
-        return Objects.equals(idProducto, other.idProducto) && Objects.equals(nomProducto, other.nomProducto);
+        return idProducto.equals(other.idProducto) || nomProducto.equals(other.nomProducto);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(idProducto, nomProducto);
-    }
+    }  
 }
 

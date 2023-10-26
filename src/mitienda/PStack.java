@@ -12,19 +12,31 @@ import javax.swing.JOptionPane;
  * @author Alex Nvdz
  */
 public class PStack {
-
-    Stack<Producto> pilaP;
+    
+     Stack<Producto> pilaP;
 
     PStack() {
         pilaP = new Stack();
     }
 
-    void setPushProducto(Producto other) {
-        if (!pilaP.contains(other)) {
-            pilaP.push(other);
+    public void setPushProducto(Producto producto) {
+        if (!pilaP.contains(producto)) {
+            pilaP.push(producto);
             JOptionPane.showMessageDialog(null, "Elemento registrado!");
         } else {
             JOptionPane.showMessageDialog(null, "El producto ya se encuentra registrado!");
+        }
+    }
+    
+    public void mostrarProductos(){
+        for (Producto producto : pilaP) {
+            String info="La información del Producto es: \n";
+            info += "IdTiquete: "+ producto.getIdProducto()+"\n";
+            info += "Ciudad destino: "+ producto.getNomProducto() +"\n";
+            info += "Precio tiquete: " + producto.getFechaLote()+ "\n";
+            info += "Precio tiquete: " + producto.getFechaVence()+ "\n";
+            info += "Precio tiquete: " + producto.getPrecioU()+ "\n";
+            JOptionPane.showMessageDialog(null, info);
         }
     }
 
@@ -39,4 +51,10 @@ public class PStack {
         }
         return suma / pilaP.size();
     }
-}
+
+    
+ }
+
+
+
+
