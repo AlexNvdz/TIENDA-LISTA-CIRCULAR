@@ -120,6 +120,12 @@ public class GestionProductosController {
                 Producto producto = new Producto(id, nom, fechaLote, fechaVence, precio);
                 pilaProductos.setPushProducto(producto);
                 
+                 txtID.clear();
+                 txtNombre.clear();
+                 getFechaL.setValue(null);
+                 getFechaV.setValue(null);
+                 txtPrecio.clear();
+                
                 } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Error al procesar fechas o precio.");
                 }
