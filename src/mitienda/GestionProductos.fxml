@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -15,18 +16,12 @@
    <children>
       <MenuBar fx:id="MenuBar" layoutY="-1.0" prefHeight="30.0" prefWidth="881.0">
         <menus>
-          <Menu fx:id="MenBuscar" mnemonicParsing="false" text="Buscar">
-               <items>
-                  <MenuItem fx:id="busId" mnemonicParsing="false" text="Por ID" />
-                  <MenuItem fx:id="busNom" mnemonicParsing="false" text="Por Nombre" />
-                  <MenuItem fx:id="busFL" mnemonicParsing="false" text="Por fechaL" />
-                  <MenuItem fx:id="busFV" mnemonicParsing="false" text="por FechaV" />
-                  <MenuItem fx:id="busPrecio" mnemonicParsing="false" text="por Precio" />
-               </items></Menu>
           <Menu fx:id="MenListar" mnemonicParsing="false" text="Listar">
                <items>
                   <MenuItem fx:id="Op2" mnemonicParsing="false" onAction="#eventoListarMenoresP" text="Menor Al Promedio" />
-                  <MenuItem fx:id="Op3" mnemonicParsing="false" text="Mayor Al Promedio" />
+                  <MenuItem fx:id="Op3" mnemonicParsing="false" onAction="#eventoListarMayoresP" text="Mayor Al Promedio" />
+                  <MenuItem fx:id="mayorPrecio" mnemonicParsing="false" onAction="#eventoMayorPrecio" text="Mayor Precio" />
+                  <MenuItem fx:id="menPrecio" mnemonicParsing="false" onAction="#eventoMenorPrecio" text="Menor Precio" />
                </items>
           </Menu>
             <Menu fx:id="MenOperaciones" mnemonicParsing="false" text="Operaciones">
@@ -61,5 +56,11 @@
             <TableColumn fx:id="precioUColumn" prefWidth="180.0" text="Precio" />
          </columns>
       </TableView>
+      <Button fx:id="actualizarTabla" layoutX="713.0" layoutY="497.0" mnemonicParsing="false" onAction="#eventoActualizar" prefHeight="26.0" prefWidth="133.0" text="Actualizar Tabla" />
+      <ComboBox fx:id="comboFiltros" layoutX="37.0" layoutY="497.0" prefHeight="26.0" prefWidth="126.0" promptText="Filtro Busqueda" />
+      <TextField fx:id="txtBusqueda" layoutX="179.0" layoutY="497.0" />
+      <ComboBox fx:id="comboMeses" layoutX="394.0" layoutY="497.0" prefHeight="26.0" prefWidth="126.0" promptText="Filtrar por Mes" />
+      <Button fx:id="btnAceptar" layoutX="532.0" layoutY="497.0" mnemonicParsing="false" onAction="#eventoBuscarMes" text="Ok" />
+      <Button fx:id="btnAceptar2" layoutX="337.0" layoutY="498.0" mnemonicParsing="false" onAction="#eventoBusqueda" prefHeight="26.0" prefWidth="31.0" text="Ok" />
    </children>
 </AnchorPane>
