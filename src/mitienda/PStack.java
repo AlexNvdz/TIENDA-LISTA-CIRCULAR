@@ -41,7 +41,7 @@ public class PStack {
     }
 
 
-    public double getPromedio() {
+    public float getPromedio() {
         float suma = 0;
         for (Producto producto : pilaP) {
             // Supongamos que los objetos Producto tienen un atributo llamado "valor"

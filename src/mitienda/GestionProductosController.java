@@ -6,12 +6,15 @@ package mitienda;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -34,9 +37,6 @@ public class GestionProductosController implements Initializable {
     LocalDate fechaLote = null, fechaVence = null;
     float precioU = -1;
     PStack pilaProductos = new PStack();
-
-    @FXML
-    private MenuItem Listar1;
 
     @FXML
     private Menu MenBuscar;
@@ -148,6 +148,15 @@ public class GestionProductosController implements Initializable {
     void eventoRegitrar(ActionEvent event) {
         String id = txtID.getText();
         String nom = txtNombre.getText();
+
+        for (Producto producto : ListaProductos) {
+            if (producto.getIdProducto().equals(id) || producto.getNomProducto().equals(nom)) {
+                JOptionPane.showMessageDialog(null, "El nombre o el id ya se encuentra registrado!!! "
+                        + "Intente nuevamente.");
+                return;
+            }
+        }
+
         if (getFechaL.getValue() == null && getFechaV.getValue() == null) {
             JOptionPane.showMessageDialog(null, "Ingrese las fechas!!!");
             return;
@@ -168,4 +177,39 @@ public class GestionProductosController implements Initializable {
             txtID.requestFocus();
         }
     }
+
+    @FXML
+    void eventoPromedio(ActionEvent event) {
+        float promedio = pilaProductos.getPromedio();
+        // Muestra el precio promedio en una ventana emergente
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Precio Promedio");
+        alert.setHeaderText(null);
+        alert.setContentText("El precio promedio de los productos es: " + promedio);
+        alert.showAndWait();
+
+    }
+
+    @FXML
+    void eventoListarMenoresP(ActionEvent event) {
+         float promedio = pilaProductos.getPromedio();
+        // Crea una lista para almacenar los productos que coincidan al ser menores al promedio
+        ObservableList<Producto> productosEncontrados = FXCollections.observableArrayList();
+        
+        if (ListaProductos.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "La Lista esta vacia ingrese primero productos!!");
+            return;
+        }
+    
+        for (Producto producto : ListaProductos) {
+            if (producto.getPrecioU() < promedio ) {
+                
+                productosEncontrados.add(producto);
+                
+            }
+        }
+        // Actualiza la tabla con los productos encontrados
+        MiTabla.setItems(productosEncontrados);
+    }
+
 }

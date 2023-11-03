@@ -25,14 +25,13 @@
                </items></Menu>
           <Menu fx:id="MenListar" mnemonicParsing="false" text="Listar">
                <items>
-                  <MenuItem fx:id="Listar1" mnemonicParsing="false" onAction="#EventoMostrar" text="Respecto al Mes" />
+                  <MenuItem fx:id="Op2" mnemonicParsing="false" onAction="#eventoListarMenoresP" text="Menor Al Promedio" />
+                  <MenuItem fx:id="Op3" mnemonicParsing="false" text="Mayor Al Promedio" />
                </items>
           </Menu>
             <Menu fx:id="MenOperaciones" mnemonicParsing="false" text="Operaciones">
               <items>
-                <MenuItem fx:id="Op1" mnemonicParsing="false" text="Promedio" />
-                  <MenuItem fx:id="Op2" mnemonicParsing="false" text="Menor y Mayor al Promedio" />
-                  <MenuItem fx:id="Op3" mnemonicParsing="false" text="Menor Y Mayor Precio" />
+                <MenuItem fx:id="Op1" mnemonicParsing="false" onAction="#eventoPromedio" text="Promedio" />
               </items>
             </Menu>
             <Menu fx:id="menSalir" mnemonicParsing="false" text="Aplicacion">
