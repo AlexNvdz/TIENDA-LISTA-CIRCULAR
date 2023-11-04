@@ -122,11 +122,6 @@ public class GestionProductosController implements Initializable {
         System.exit(0);
     }
 
-    @FXML
-    void EventoMostrar(ActionEvent event) {
-        pilaProductos.mostrarProductos();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -424,3 +419,4 @@ public class GestionProductosController implements Initializable {
         }
     }
 }
+//FINALIZACION

@@ -28,19 +28,6 @@ public class PStack {
         }
     }
     
-    public void mostrarProductos(){
-        for (Producto producto : pilaP) {
-            String info="La información del Producto es: \n";
-            info += "IdTiquete: "+ producto.getIdProducto()+"\n";
-            info += "Ciudad destino: "+ producto.getNomProducto() +"\n";
-            info += "Precio tiquete: " + producto.getFechaLote()+ "\n";
-            info += "Precio tiquete: " + producto.getFechaVence()+ "\n";
-            info += "Precio tiquete: " + producto.getPrecioU()+ "\n";
-            JOptionPane.showMessageDialog(null, info);
-        }
-    }
-
-
     public float getPromedio() {
         float suma = 0;
         for (Producto producto : pilaP) {
@@ -54,6 +41,8 @@ public class PStack {
 
     
  }
+
+//Finalizacion
 
 
 

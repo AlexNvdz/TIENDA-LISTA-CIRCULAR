@@ -87,4 +87,5 @@ public class Producto {
         return Objects.hash(idProducto, nomProducto);
     }  
 }
+//FINALIZACION
 
